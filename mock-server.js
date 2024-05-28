@@ -2,11 +2,17 @@ import express from 'express';
 
 const app = express();
 
-app.get('/processes', (req, res) => {
+const disableCors = function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', '*');
   res.setHeader('Access-Control-Allow-Headers', '*');
-  res.send([{ name: 'process 1' }, { name: 'my proc' }]);
+  next();
+};
+
+app.use(disableCors);
+
+app.get('/processes', (req, res) => {
+  res.send([{ name: 'Approval' }, { name: 'ProductOrderRequest' }]);
 });
 
 app.listen(3000, () => {
