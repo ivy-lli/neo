@@ -1,26 +1,22 @@
+import { Flex, SearchInput } from '@axonivy/ui-components';
 import type { MetaFunction } from '@remix-run/node';
-import { useQuery } from '@tanstack/react-query';
-import { Process } from '~/process';
+import { useProcesses } from '~/data/processes';
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Axon Ivy Processes' }, { name: 'description', content: 'Axon Ivy Processes Overview' }];
 };
 
 export default function Index() {
-  const { data } = useQuery({
-    queryKey: ['processes'],
-    queryFn: () => fetch('http://localhost:3000/processes').then(res => res.json() as Promise<Array<Process>>),
-    initialData: []
-  });
-
+  const processes = useProcesses();
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <h1>Processes</h1>
+    <Flex direction='column' gap={4}>
+      <span style={{ fontWeight: 600, fontSize: 16 }}>Processes</span>
+      <SearchInput />
       <ul>
-        {data.map(process => (
+        {processes.map(process => (
           <li key={process.name}>{process.name}</li>
         ))}
       </ul>
-    </div>
+    </Flex>
   );
 }

@@ -1,8 +1,17 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { Links, Meta, Scripts, ScrollRestoration } from '@remix-run/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import iconStylesHref from '@axonivy/ui-icons/lib/ivy-icons.css?url';
+import componentsStylesHref from '@axonivy/ui-components/lib/style.css?url';
+import { LinksFunction } from '@remix-run/node';
+import { Neo } from './neo/Neo';
 
 const queryClient = new QueryClient();
+
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: iconStylesHref },
+  { rel: 'stylesheet', href: componentsStylesHref }
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -25,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Neo />
       <ReactQueryDevtools initialIsOpen={false} buttonPosition={'bottom-left'} />
     </QueryClientProvider>
   );
