@@ -15,7 +15,9 @@ const ProcessCard = ({ name }: { name: string }) => {
       gap={2}
       style={{ background: 'var(--N75)', padding: 'var(--size-2)', borderRadius: 10, height: 150, flex: '0 1 200px' }}
     >
-      <div style={{ background: 'var(--background)', borderRadius: 8, flex: '1 0 auto' }} />
+      <div style={{ background: 'var(--background)', borderRadius: 8, flex: '1 0 auto' }}>
+        <img src='/process.svg' alt='process-prev'></img>
+      </div>
       <Flex alignItems='center' justifyContent='space-between'>
         <span>{name}</span>
         <IvyIcon icon={IvyIcons.ArrowRight} />
