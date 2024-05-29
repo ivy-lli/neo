@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Process } from '~/process';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Processes' }, { name: 'description', content: 'Welcome to Remix (SPA Mode)!' }];
+  return [{ title: 'Axon Ivy Processes' }, { name: 'description', content: 'Axon Ivy Processes Overview' }];
 };
 
 export default function Index() {

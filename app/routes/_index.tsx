@@ -6,14 +6,14 @@ import '@axonivy/ui-icons/lib/ivy-icons.css';
 import '@axonivy/ui-components/lib/style.css';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'New Remix SPA' }, { name: 'description', content: 'Welcome to Remix (SPA Mode)!' }];
+  return [{ title: 'Axon Ivy Neo' }, { name: 'description', content: 'Welcome to Axon Ivy Neo!' }];
 };
 
 export default function Index() {
   const navigate = useNavigate();
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <h1>Welcome to Remix (SPA Mode)</h1>
+      <h1>Welcome to Neo</h1>
       <Button icon={IvyIcons.Process} size='large' onClick={() => navigate('processes')} />
     </div>
   );
