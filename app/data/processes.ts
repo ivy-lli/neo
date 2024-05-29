@@ -3,6 +3,7 @@ import { get } from './engine-api';
 
 export type Process = {
   name: string;
+  path: string;
 };
 
 export const useProcesses = () => {

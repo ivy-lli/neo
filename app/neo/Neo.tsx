@@ -9,7 +9,7 @@ export const Neo = () => {
       <ControlBar />
       <Flex direction='row' style={{ height: 'calc(100vh - 41px)' }}>
         <Navigation />
-        <div style={{ padding: '30px', width: '100%' }}>
+        <div style={{ width: '100%' }}>
           <Outlet />
         </div>
       </Flex>
