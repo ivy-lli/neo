@@ -16,7 +16,7 @@ const ProcessCard = ({ name, path }: { name: string; path: string }) => {
       justifyContent='space-between'
       gap={2}
       style={{ background: 'var(--N75)', padding: 'var(--size-2)', borderRadius: 10, height: 150, flex: '0 1 200px' }}
-      onClick={() => navigate(`/process?path=${path}`)}
+      onClick={() => navigate(`/processes/${path}`)}
     >
       <div style={{ background: 'var(--background)', borderRadius: 8, flex: '1 0 auto' }}>
         <img src='/process.svg' alt='process-prev'></img>
