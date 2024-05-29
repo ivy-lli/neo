@@ -12,6 +12,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@axonivy/ui-components": "^11.4.0-next",
+    "@axonivy/ui-icons": "^11.4.0-next",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@tanstack/react-query": "^5.40.0",
