@@ -1,8 +1,12 @@
 import { Flex, IvyIcon, SearchInput } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
-import type { MetaFunction } from '@remix-run/node';
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import { useNavigate } from '@remix-run/react';
 import { useProcesses } from '~/data/processes';
+
+import processStyles from '~/styles/processes.css?url';
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: processStyles }];
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Axon Ivy Processes' }, { name: 'description', content: 'Axon Ivy Processes Overview' }];
@@ -19,7 +23,7 @@ const ProcessCard = ({ name, path }: { name: string; path: string }) => {
       onClick={() => navigate(`/processes/${path}`)}
     >
       <div style={{ background: 'var(--background)', borderRadius: 8, flex: '1 0 auto' }}>
-        <img src='/process.svg' alt='process-prev'></img>
+        <img className='process-preview' src='/process.svg' alt='process-prev' />
       </div>
       <Flex alignItems='center' justifyContent='space-between'>
         <span>{name}</span>

@@ -5,6 +5,7 @@ import iconStylesHref from '@axonivy/ui-icons/lib/ivy-icons.css?url';
 import componentsStylesHref from '@axonivy/ui-components/lib/style.css?url';
 import { LinksFunction } from '@remix-run/node';
 import { Neo } from './neo/Neo';
+import { ThemeProvider } from '@axonivy/ui-components';
 
 const queryClient = new QueryClient();
 
@@ -33,10 +34,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Neo />
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition={'bottom-left'} />
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <Neo />
+        <ReactQueryDevtools initialIsOpen={false} buttonPosition={'bottom-right'} />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

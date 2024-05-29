@@ -13,6 +13,8 @@ export const Navigation = () => {
     >
       <Button icon={IvyIcons.Process} size='large' toggle={true} onClick={() => navigate('processes')} />
       <Button icon={IvyIcons.Database} size='large' onClick={() => navigate('processes')} />
+      <Button icon={IvyIcons.File} size='large' onClick={() => navigate('processes')} />
+      <Button icon={IvyIcons.Tool} size='large' onClick={() => navigate('processes')} />
     </Flex>
   );
 };
