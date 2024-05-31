@@ -26,8 +26,8 @@ const ProcessCard = ({ name, path }: { name: string; path: string }) => {
       <div style={{ background: 'var(--background)', borderRadius: 8, flex: '1 0 auto' }}>
         <img className='process-preview' src='/process.svg' alt='process-prev' />
       </div>
-      <Flex alignItems='center' justifyContent='space-between'>
-        <span>{name}</span>
+      <Flex alignItems='center' justifyContent='space-between' gap={1}>
+        <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: 'calc(200px - var(--size-1) - 12px)' }}>{name}</span>
         <IvyIcon icon={IvyIcons.ArrowRight} />
       </Flex>
     </Flex>
@@ -38,7 +38,7 @@ export default function Index() {
   const [search, setSearch] = useState('');
   const processes = useProcesses().filter(proc => proc.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
   return (
-    <Flex direction='column' gap={4} style={{ padding: 30 }}>
+    <Flex direction='column' gap={4} style={{ padding: 30, height: 'calc(100% - 60px)', overflowY: 'auto' }}>
       <span style={{ fontWeight: 600, fontSize: 16 }}>Processes</span>
       <SearchInput value={search} onChange={setSearch} />
       <Flex gap={4} style={{ flexWrap: 'wrap' }}>
