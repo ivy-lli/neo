@@ -6,7 +6,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
+    <div style={{ padding: 30 }}>
       <h1>Welcome to Neo</h1>
     </div>
   );

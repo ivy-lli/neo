@@ -2,6 +2,7 @@ import { Flex, IvyIcon, SearchInput } from '@axonivy/ui-components';
 import { IvyIcons } from '@axonivy/ui-icons';
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import { useNavigate } from '@remix-run/react';
+import { useState } from 'react';
 import { useProcesses } from '~/data/processes';
 
 import processStyles from '~/styles/processes.css?url';
@@ -34,14 +35,15 @@ const ProcessCard = ({ name, path }: { name: string; path: string }) => {
 };
 
 export default function Index() {
-  const processes = useProcesses();
+  const [search, setSearch] = useState('');
+  const processes = useProcesses().filter(proc => proc.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
   return (
-    <Flex direction='column' gap={4} style={{ padding: '30px' }}>
+    <Flex direction='column' gap={4} style={{ padding: 30 }}>
       <span style={{ fontWeight: 600, fontSize: 16 }}>Processes</span>
-      <SearchInput />
+      <SearchInput value={search} onChange={setSearch} />
       <Flex gap={4} style={{ flexWrap: 'wrap' }}>
         {processes.map(process => (
-          <ProcessCard key={process.name} name={process.name} path={process.path} />
+          <ProcessCard key={process.path ?? process.name} {...process} />
         ))}
       </Flex>
     </Flex>
